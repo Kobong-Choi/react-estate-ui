@@ -9,17 +9,17 @@
   margin-right: auto;
 
   @include lg {
-    background-color: blue;
+    background-color: lightgray;
     max-width: 1280px;
   }
 
   @include md {
-    background-color: orange;
+    background-color: lightsteelblue;
     max-width: 768px;
   }
 
   @include sm {
-    background-color: red;
+    background-color: lightyellow;
     max-width: 640px;
   }
 }
