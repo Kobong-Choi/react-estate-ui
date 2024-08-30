@@ -1,9 +1,10 @@
 import { useContext, useState } from "react";
-import "./profileUpdatePage.scss";
 import { AuthContext } from "../../context/AuthContext";
-import apiRequest from "../../lib/apiRequest";
 import { useNavigate } from "react-router-dom";
+import apiRequest from "../../lib/apiRequest";
 import UploadWidget from "../../components/uploadWidget/UploadWidget";
+
+import "./profileUpdatePage.scss";
 
 function ProfileUpdatePage() {
   const { currentUser, updateUser } = useContext(AuthContext);
@@ -14,8 +15,8 @@ function ProfileUpdatePage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const formData = new FormData(e.target);
 
+    const formData = new FormData(e.target);
     const { username, email, password } = Object.fromEntries(formData);
 
     try {
@@ -25,6 +26,7 @@ function ProfileUpdatePage() {
         password,
         avatar: avatar[0],
       });
+      
       updateUser(res.data);
       navigate("/profile");
     } catch (err) {
