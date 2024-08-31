@@ -72,19 +72,26 @@
       }
     }
 
-    button {
-      border: none;
-      background-color: #fece51;
+    a {
       flex: 1; // form 컨테이너 내에서 가능한 모든 공간을 차지하려고 시도합니다.
-      cursor: pointer;
+      background-color: #fece51;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-      @include sm {
-        padding: 10px;
-      }
+      button {
+        border: none;
+        cursor: pointer;
+        background-color: #fece51;
 
-      img {
-        width: 24px;
-        height: 24px;
+        @include sm {
+          padding: 10px;
+        }
+
+        img {
+          width: 24px;
+          height: 24px;
+        }
       }
     }
   }
