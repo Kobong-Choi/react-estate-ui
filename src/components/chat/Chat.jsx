@@ -1,14 +1,15 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
-import apiRequest from "../../lib/apiRequest";
+import { SocketContext } from "../../context/SocketContext";
 import { format } from "timeago.js";
+import apiRequest from "../../lib/apiRequest";
 
 import "./chat.scss";
 
 const Chat = ({ chats }) => {
   const [chat, setChat] = useState(null);
-  console.log(chat);
   const { currentUser } = useContext(AuthContext);
+  const { socket } = useContext(SocketContext);
 
   const handleOpenChat = async (id, receiver) => {
     try {
@@ -37,8 +38,13 @@ const Chat = ({ chats }) => {
     }
   };
 
+  const testSocket = () => {
+    socket.emit("test", "hi from client");
+  };
+
   return (
     <div className="chat">
+      <button onClick={testSocket}>Test Me</button>
       <div className="messages">
         <h1>Messages</h1>
         {chats.map((chat) => (
